@@ -1,15 +1,16 @@
 /* ---------------------------varables*/
 :root 
 {
+  --njrblue: #1f4d96;
   --blue: #ffffff;
   --white: #ffffff;
   --lightblue:  rgb(235, 0, 0);
   --red: rgb(167, 70, 70);
-  --black: rgb(0, 0, 0);
+  --black: rgb(0,0,0);
   --yellow: rgb(255, 208, 0);
   --green: rgb(51, 206, 98);
   --gray: rgb(230, 230, 230);
-  --darkgray: rgb(182, 182, 182);
+  --darkgray: rgb(42, 42, 44);
   --trans: rgba(255, 255, 255, 0);
   --transluscent: rgba(255, 255, 255, 0);
 }
@@ -176,17 +177,17 @@ section .text-container .text-box{
   margin-bottom: 0px;
   font-weight: 700;
   text-align: left;
+  color: var(--njrblue);
 }
 .hero:nth-child(1) {
   animation: titleAnim 1s ease-in;
+  font-weight: normal;
+  color: var(--white);
+  text-transform: uppercase;
+  text-shadow: -1px -1px 0 var(--njrblue), 1px -1px 0 var(--njrblue), -1px 1px 0 var(--njrblue), 1px 1px 0 var(--njrblue);
 }
 .hero:nth-child(2) {
   animation: titleAnim2 3s ease-in-out;
-  margin-top: 0px;
-  font-weight: normal;
-  color: var(--white);
-  text-shadow: -1px -1px 0 var(--black), 1px -1px 0 var(--black), -1px 1px 0 var(--black), 1px 1px 0 var(--black);
-  text-transform: uppercase;
   text-align: right;
   font-size: 8vw;
 }
@@ -264,6 +265,7 @@ section:nth-child(3) { /*def*/
   background-size: cover;
   background-position: center;
   height: auto;
+  color: var(--njrblue);
 }
 section:nth-child(3) .text-container {
   padding-bottom: 45px;
@@ -282,7 +284,7 @@ section:nth-child(3) .text-container .text-box{
 
 section:nth-child(4) {
   background-image: url(../images/bg.png);
-  background-color: var(--black);
+  background-color: var(--darkgray);
   color: var(--white);
 
   background-repeat: no-repeat;
@@ -313,6 +315,7 @@ section:nth-child(5) { /*projects*/
   padding-top: 150px;
   height: auto;
   display: block;
+  color: var(--njrblue);
 }
 .outliner{
 border: solid black;
@@ -404,14 +407,14 @@ section .text-container .text-box-break {
 /* ---------------------------top nav*/
 
 .top-box {
-  background-color: var(--white);
+  background-color: var(--njrblue);
   position:fixed;
   top: 0;
   z-index: 9999;
   width: 100%;  
 }
 .topnav {
-  background-color: var(--white);
+  background-color: var(--njrblue);
   background-image: url(../images/logo_white.png);
   background-size: 260px;
   background-repeat: no-repeat;
@@ -421,18 +424,19 @@ section .text-container .text-box-break {
   height: 160px;
 }
 .topnav img {
-  width: 260px;
+  width: 200px;
   margin: auto;
   visibility: hidden;
-  position: relative;
+  position:relative;
   left: -20px;
+  bottom: 20px;
 }
 
 /* Style the links inside the navigation bar */
 .topnav a{
   float: left;
   display: block;
-  color: var(--black);
+  color: var(--white);
   text-align: center;
   padding: 14px 16px;
   margin-top: 75px;
@@ -454,10 +458,11 @@ section .text-container .text-box-break {
 }
 
 .topnav a:nth-child(2),
-.topnav a:nth-child(3){
+.topnav a:nth-child(3),
+.topnav a:nth-child(4){
   float: right;
 }
-.topnav a:nth-child(4){
+.topnav a:nth-child(5){
   float: right;
   border-bottom: 5px var(--gray) solid;
 }
@@ -471,7 +476,7 @@ section .text-container .text-box-break {
 .topnav a:hover, .dropdown:hover .dropbtn {
   background-position: center;
   transition: 1s;
-  color: var(--lightblue);
+  color: var(--njrblue);
 }
 
 /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
