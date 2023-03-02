@@ -630,3 +630,29 @@ imageAnimation {
       transform: translate3d(0, 0, 0);
   }
 }
+
+
+/**number count*/
+/*
+@property --num {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+
+div {
+  transition: --num 5s;
+  counter-set: num var(--num);
+  font: 800 40px system-ui;
+}
+div::after {
+  content: counter(num);
+}
+div:hover {
+  --num: 100;
+}
+
+body {
+  margin: 2rem;
+}
+*/
