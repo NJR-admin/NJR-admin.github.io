@@ -173,7 +173,7 @@ section .text-container .text-box{
 .hero {
   margin: 5vw;
   background-color: #ffffffa4;
-  font-size: 6vw;
+  font-size: 4vw;
   padding-bottom: 0px;
   margin-bottom: 0px;
   font-weight: 700;
@@ -185,6 +185,7 @@ section .text-container .text-box{
   font-weight: normal;
   color: var(--white);
   text-transform: uppercase;
+  text-align: right;
   text-shadow: -1px -1px 0 var(--njrblue), 1px -1px 0 var(--njrblue), -1px 1px 0 var(--njrblue), 1px 1px 0 var(--njrblue);
 }
 .hero:nth-child(2) {
@@ -208,26 +209,17 @@ section .text-container .text-box{
   100% {opacity: 0%;}
 }
 @media screen and (max-width: 1400px) {
-  .hero {
-    font-size:8vw;
-  }
+
 }
   @media screen and (max-width: 900px) {
-    .hero {
-      padding-top: 0px;
-      font-size: 12vw;
-    }  
+
   .title {
     text-align: left;
     padding: 10px;
     padding-left: 30px;
   }
 }
-@media screen and (max-width: 600px) {
-  .hero {
-    font-size:13vw;
-  }
-}
+
 
 
 
