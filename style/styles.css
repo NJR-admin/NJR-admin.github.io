@@ -338,7 +338,7 @@ section:nth-child(5) .text-container .text-box ul li {
 section:nth-child(5) .text-container .text-box ul li h5 {
   padding-left: 26px;
   margin-bottom: 5px;
-  font-size: 30px;
+  font-size: 40px;
 }
 section:nth-child(5) .text-container .text-box img{
 max-width: 60vw;
@@ -630,6 +630,67 @@ imageAnimation {
       transform: translate3d(0, 0, 0);
   }
 }
+
+
+/*animation for numbers*****************************************/
+
+@property --num1 {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+
+@property --num2 {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+
+@property --num3 {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+
+.count1 {
+  counter-reset: num1 var(--num1);
+  font-size: 40px;
+  font-weight: bold;
+  animation: animate 5s forwards ease;
+}
+.count1:before {
+  content: counter(num1);
+}
+
+.count2 {
+  counter-reset: num2 var(--num2);
+  font-size: 40px;
+  font-weight: bold;
+  animation: animate 5s forwards ease;
+}
+.count2:before {
+  content: counter(num2);
+}
+
+.count3 {
+  counter-reset: num3 var(--num3);
+  font-size: 40px;
+  font-weight: bold;
+  animation: animate 5s forwards ease;
+}
+.count3:before {
+  content: counter(num3);
+}
+
+@keyframes animate {
+  to {
+    --num1: 3170;
+    --num2: 223;
+    --num3: 2360;
+  }
+}
+
+
 
 
 /**number count*/

@@ -171,55 +171,32 @@ section .text-container .text-box{
   bottom: 0;
 }
 .hero {
-  margin: 5vw;
-  background-color: #ffffffa4;
-  font-size: 4vw;
-  padding-bottom: 0px;
-  margin-bottom: 0px;
+  padding: 15px;
+  padding-top: 30px;
+  font-size: 6vw;
   font-weight: 700;
-  text-align: left;
-  color: var(--njrblue);
+  text-align: center;
+  background-color: white;
+  position: fixed;
+  text-transform: uppercase;
+  font-weight: normal;
 }
 .hero:nth-child(1) {
-  animation: titleAnim 1s ease-in;
-  font-weight: normal;
   color: var(--white);
-  text-transform: uppercase;
-  text-align: right;
-  text-shadow: -1px -1px 0 var(--njrblue), 1px -1px 0 var(--njrblue), -1px 1px 0 var(--njrblue), 1px 1px 0 var(--njrblue);
+  background-color: var(--njrblue);
+  animation: titleAnim 1s ease-in;
 }
 .hero:nth-child(2) {
-  animation: titleAnim2 3s ease-in-out;
-  text-align: right;
-  font-size: 6.5vw;
+  color: var(--white);
+  text-shadow: -1px -1px 0 var(--njrblue), 1px -1px 0 var(--njrblue), -1px 1px 0 var(--njrblue), 1px 1px 0 var(--njrblue);
+  position:static;
+
 }
 @keyframes titleAnim {
   0% {opacity: 0%;}
   50% {opacity: 0%;}
   100% {opacity: 100%;}
 }
-@keyframes titleAnim2 {
-  0% {opacity: 0%;}
-  80%{opacity: 0%;}
-  100% {opacity: 100%;}
-}
-@keyframes softBlink {
-  0% {opacity: 0%;}
-  50%{opacity: 100%;}
-  100% {opacity: 0%;}
-}
-@media screen and (max-width: 1400px) {
-
-}
-  @media screen and (max-width: 900px) {
-
-  .title {
-    text-align: left;
-    padding: 10px;
-    padding-left: 30px;
-  }
-}
-
 
 
 
@@ -280,7 +257,7 @@ section .text-container .text-box-break {
   font-size: 12pt;
   text-align: center;
   font-style: italic;
-  position: relative;
+  position:sticky;
   z-index: 9999;
   background-image: url(../images/h.png);
   background-repeat: no-repeat;
