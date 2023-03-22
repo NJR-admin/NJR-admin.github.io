@@ -191,7 +191,7 @@ section .text-container .text-box{
 .hero:nth-child(2) {
   animation: titleAnim2 3s ease-in-out;
   text-align: right;
-  font-size: 6.5vw;
+  font-size: 6vw;
 }
 @keyframes titleAnim {
   0% {opacity: 0%;}
@@ -656,7 +656,7 @@ imageAnimation {
   counter-reset: num1 var(--num1);
   font-size: 40px;
   font-weight: bold;
-  animation: animate 5s forwards ease;
+  animation: animate 15s forwards ease;
 }
 .count1:before {
   content: counter(num1);
@@ -666,7 +666,7 @@ imageAnimation {
   counter-reset: num2 var(--num2);
   font-size: 40px;
   font-weight: bold;
-  animation: animate 5s forwards ease;
+  animation: animate 16s forwards ease;
 }
 .count2:before {
   content: counter(num2);
@@ -676,7 +676,7 @@ imageAnimation {
   counter-reset: num3 var(--num3);
   font-size: 40px;
   font-weight: bold;
-  animation: animate 5s forwards ease;
+  animation: animate 17s forwards ease;
 }
 .count3:before {
   content: counter(num3);
