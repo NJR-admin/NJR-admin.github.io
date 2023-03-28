@@ -172,7 +172,7 @@ section .text-container .text-box{
   bottom: 0;
 }
 .hero {
-  margin: 5vw;
+  margin: 4.5vw;
   background-color: #ffffffa4;
   font-size: 6vw;
   padding-bottom: 0px;
@@ -236,6 +236,8 @@ section:nth-child(2) { /*title*/
   background-repeat: no-repeat;
   background-size:cover;
   background-color: var(--transluscent);
+  height: fit-content;
+  min-height: 100vh;
 } 
 section:nth-child(2) .about-containers {
   display: inline;
@@ -352,6 +354,9 @@ margin-bottom: auto;
     max-width: none;
     max-height: none;
   }
+}
+.figcaption {
+  background-color: var(--njrblue);
 }
 
 
@@ -634,86 +639,23 @@ imageAnimation {
 
 /*animation for numbers*****************************************/
 
-@property --num1 {
-  syntax: "<integer>";
-  initial-value: 0;
-  inherits: false;
+.pulse {
+  font-size:px;
+  animation: animate 7s infinite ease-in-out;
 }
-
-@property --num2 {
-  syntax: "<integer>";
-  initial-value: 0;
-  inherits: false;
-}
-
-@property --num3 {
-  syntax: "<integer>";
-  initial-value: 0;
-  inherits: false;
-}
-
-.count1 {
-  counter-reset: num1 var(--num1);
-  font-size: 40px;
-  font-weight: bold;
-  animation: animate 15s forwards ease;
-}
-.count1:before {
-  content: counter(num1);
-}
-
-.count2 {
-  counter-reset: num2 var(--num2);
-  font-size: 40px;
-  font-weight: bold;
-  animation: animate 16s forwards ease;
-}
-.count2:before {
-  content: counter(num2);
-}
-
-.count3 {
-  counter-reset: num3 var(--num3);
-  font-size: 40px;
-  font-weight: bold;
-  animation: animate 17s forwards ease;
-}
-.count3:before {
-  content: counter(num3);
-}
-
 @keyframes animate {
-  to {
-    --num1: 3170;
-    --num2: 223;
-    --num3: 2360;
+  0%{
+    transform: scale(100%) translateX(0);
+  }
+  50%{
+    transform: scale(120%) translateX(30px);
+  }
+  100%{
+    transform: scale(100%) translateX(0);
   }
 }
 
 
 
 
-/**number count*/
-/*
-@property --num {
-  syntax: "<integer>";
-  initial-value: 0;
-  inherits: false;
-}
 
-div {
-  transition: --num 5s;
-  counter-set: num var(--num);
-  font: 800 40px system-ui;
-}
-div::after {
-  content: counter(num);
-}
-div:hover {
-  --num: 100;
-}
-
-body {
-  margin: 2rem;
-}
-*/
