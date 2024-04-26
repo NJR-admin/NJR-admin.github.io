@@ -1,0 +1,33 @@
+{
+"type": "FeatureCollection",
+"name": "Convenience Stores",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "field_1": "Convenience store ", "field_2": 49.220806, "field_3": -122.590868 }, "geometry": { "type": "Point", "coordinates": [ -122.590868, 49.220806 ] } },
+{ "type": "Feature", "properties": { "field_1": "Convenience store ", "field_2": 49.220054, "field_3": -122.587939 }, "geometry": { "type": "Point", "coordinates": [ -122.587939, 49.220054 ] } },
+{ "type": "Feature", "properties": { "field_1": "Convenience store ", "field_2": 49.217938, "field_3": -122.594445 }, "geometry": { "type": "Point", "coordinates": [ -122.594445, 49.217938 ] } },
+{ "type": "Feature", "properties": { "field_1": "Convenience store ", "field_2": 49.22078, "field_3": -122.579844 }, "geometry": { "type": "Point", "coordinates": [ -122.579844, 49.22078 ] } },
+{ "type": "Feature", "properties": { "field_1": "Convenience store ", "field_2": 49.221453, "field_3": -122.622183 }, "geometry": { "type": "Point", "coordinates": [ -122.622183, 49.221453 ] } },
+{ "type": "Feature", "properties": { "field_1": "Convenience store ", "field_2": 49.241979, "field_3": -122.601486 }, "geometry": { "type": "Point", "coordinates": [ -122.601486, 49.241979 ] } },
+{ "type": "Feature", "properties": { "field_1": "Convenience store ", "field_2": 49.220281, "field_3": -122.622225 }, "geometry": { "type": "Point", "coordinates": [ -122.622225, 49.220281 ] } },
+{ "type": "Feature", "properties": { "field_1": "Convenience store ", "field_2": 49.217573, "field_3": -122.591956 }, "geometry": { "type": "Point", "coordinates": [ -122.591956, 49.217573 ] } },
+{ "type": "Feature", "properties": { "field_1": "Convenience store ", "field_2": 49.216608, "field_3": -122.623287 }, "geometry": { "type": "Point", "coordinates": [ -122.623287, 49.216608 ] } },
+{ "type": "Feature", "properties": { "field_1": "Convenience store ", "field_2": 49.203761, "field_3": -122.581062 }, "geometry": { "type": "Point", "coordinates": [ -122.581062, 49.203761 ] } },
+{ "type": "Feature", "properties": { "field_1": "Convenience store ", "field_2": 49.217475, "field_3": -122.632389 }, "geometry": { "type": "Point", "coordinates": [ -122.632389, 49.217475 ] } },
+{ "type": "Feature", "properties": { "field_1": "Convenience store ", "field_2": 49.220186, "field_3": -122.606483 }, "geometry": { "type": "Point", "coordinates": [ -122.606483, 49.220186 ] } },
+{ "type": "Feature", "properties": { "field_1": "Convenience store ", "field_2": 49.220741, "field_3": -122.55627 }, "geometry": { "type": "Point", "coordinates": [ -122.55627, 49.220741 ] } },
+{ "type": "Feature", "properties": { "field_1": "Convenience store ", "field_2": 49.221164, "field_3": -122.657308 }, "geometry": { "type": "Point", "coordinates": [ -122.657308, 49.221164 ] } },
+{ "type": "Feature", "properties": { "field_1": "Convenience store ", "field_2": 49.22077, "field_3": -122.606746 }, "geometry": { "type": "Point", "coordinates": [ -122.606746, 49.22077 ] } },
+{ "type": "Feature", "properties": { "field_1": "Convenience store ", "field_2": 49.217999, "field_3": -122.647713 }, "geometry": { "type": "Point", "coordinates": [ -122.647713, 49.217999 ] } },
+{ "type": "Feature", "properties": { "field_1": "Convenience store ", "field_2": 49.207275, "field_3": -122.652506 }, "geometry": { "type": "Point", "coordinates": [ -122.652506, 49.207275 ] } },
+{ "type": "Feature", "properties": { "field_1": "Convenience store ", "field_2": 49.218077, "field_3": -122.65116 }, "geometry": { "type": "Point", "coordinates": [ -122.65116, 49.218077 ] } },
+{ "type": "Feature", "properties": { "field_1": "Convenience store ", "field_2": 49.220239, "field_3": -122.648512 }, "geometry": { "type": "Point", "coordinates": [ -122.648512, 49.220239 ] } },
+{ "type": "Feature", "properties": { "field_1": "Convenience store ", "field_2": 49.220986, "field_3": -122.513642 }, "geometry": { "type": "Point", "coordinates": [ -122.513642, 49.220986 ] } },
+{ "type": "Feature", "properties": { "field_1": "Convenience store ", "field_2": 49.208429, "field_3": -122.651455 }, "geometry": { "type": "Point", "coordinates": [ -122.651455, 49.208429 ] } },
+{ "type": "Feature", "properties": { "field_1": "Convenience store ", "field_2": 49.221542, "field_3": -122.671859 }, "geometry": { "type": "Point", "coordinates": [ -122.671859, 49.221542 ] } },
+{ "type": "Feature", "properties": { "field_1": "Convenience store ", "field_2": 49.216397, "field_3": -122.60519 }, "geometry": { "type": "Point", "coordinates": [ -122.60519, 49.216397 ] } },
+{ "type": "Feature", "properties": { "field_1": "Convenience store ", "field_2": 49.220054, "field_3": -122.587939 }, "geometry": { "type": "Point", "coordinates": [ -122.587939, 49.220054 ] } },
+{ "type": "Feature", "properties": { "field_1": "Convenience store ", "field_2": 49.220281, "field_3": -122.622225 }, "geometry": { "type": "Point", "coordinates": [ -122.622225, 49.220281 ] } },
+{ "type": "Feature", "properties": { "field_1": "Convenience store ", "field_2": 49.235219, "field_3": -122.578809 }, "geometry": { "type": "Point", "coordinates": [ -122.578809, 49.235219 ] } }
+]
+}
