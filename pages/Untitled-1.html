@@ -1,0 +1,282 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>>
+    <title>Dynamic Leaflet Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+    <div id="map" style="height: 400px;"></div>
+
+    <script>
+        // Your JavaScript code will go here
+        // Initialize the map
+        // Initialize the map centered on Maple Ridge, BC
+        var map = L.map('map').setView([49.2219, -122.6011], 12);
+
+        // Add a grayscale tile layer (e.g., CartoDB Positron)
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://carto.com/attributions">CARTO</a>',
+            subdomains: 'abcd',
+            maxZoom: 19
+        }).addTo(map);
+        // Fetch GeoJSON data
+        fetch('https://raw.githubusercontent.com/NJR-admin/NJR-admin.github.io/main/pages/data/Free%20%2B%20Low%20Cost%20Directory.geojson')
+            .then(response => response.json())
+            .then(data => {
+                // Add GeoJSON layer to the map
+                L.geoJSON(data).addTo(map);
+            });
+        // Function to update GeoJSON layer
+        /*
+        function updateGeoJSONLayer() {
+            fetch('https://raw.githubusercontent.com/NJR-admin/NJR-admin.github.io/main/pages/data/Free%20%2B%20Low%20Cost%20Directory.geojson')
+                .then(response => response.json())
+                .then(data => {
+                    // Clear existing GeoJSON layer
+                    map.eachLayer(layer => {
+                        if (layer instanceof L.GeoJSON) {
+                            map.removeLayer(layer);
+                        }
+                    });
+
+                    // Add updated GeoJSON layer to the map
+                    L.geoJSON(data).addTo(map);
+                });
+}*/
+
+// Update GeoJSON layer every 60 seconds (for example)
+setInterval(updateGeoJSONLayer, 60000); // Update interval in milliseconds
+
+    </script>
+</body>
+</html>-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Leaflet Map with Multiple Legends</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <style>
+        #map { height: 600px; }
+        .legend {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+            margin-bottom: 10px;
+        }
+        .legend-item {
+            margin-bottom: 5px;
+        }
+        .legend-color {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .program-label {
+            font-weight: bold;
+            margin-top: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+
+    <script>
+        var map = L.map('map').setView([49.2219, -122.6011], 12);
+
+        // Add a grayscale tile layer (e.g., CartoDB Positron)
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://carto.com/attributions">CARTO</a>',
+            subdomains: 'abcd',
+            maxZoom: 19
+        }).addTo(map);
+
+                       // Load and display the BFP-PPGC.geojson data (Black dots)
+                       fetch('https://raw.githubusercontent.com/NJR-admin/NJR-admin.github.io/main/pages/data/BFP-PPGC.geojson')
+                    .then(response => response.json())
+                    .then(data => {
+                        var values = data.features.map(feature => feature.properties['GPERP']);
+                        var minValue = Math.min(...values);
+                        var maxValue = Math.max(...values);
+                        var range = maxValue - minValue;
+
+                        function getColor(value) {
+                            var percentage = (value - minValue) / range;
+                            var hue = percentage * 120; // Hue ranges from 0 (red) to 120 (green)
+                            return `hsl(${hue}, 80%, 70%)`; // Using pastel colors
+                        }
+
+                        L.geoJSON(data, {
+                            style: function (feature) {
+                                var value = feature.properties['GPERP'];
+                                return {
+                                    fillColor: getColor(value),
+                                    weight: 1,
+                                    opacity: 1,
+                                    color: 'white',
+                                    fillOpacity: 0.8,
+                                    interactive: false // Disable interaction to keep below the other layer
+                                };
+                            }
+                        }).addTo(map);
+
+                        // Create legend for GPERP data
+                        var legendGPERP = L.control({ position: 'bottomright' });
+                        legendGPERP.onAdd = function (map) {
+                            var div = L.DomUtil.create('div', 'legend');
+                            div.innerHTML += '<h4>GPERP Legend</h4>';
+                            div.innerHTML += `<div class="legend-item"><div class="legend-color" style="background-color:${getColor(minValue)}"></div>${minValue.toFixed(2)}</div>`;
+                            div.innerHTML += `<div class="legend-item"><div class="legend-color" style="background-color:${getColor(minValue + range * 0.25)}"></div>${(minValue + range * 0.25).toFixed(2)}</div>`;
+                            div.innerHTML += `<div class="legend-item"><div class="legend-color" style="background-color:${getColor(minValue + range * 0.5)}"></div>${(minValue + range * 0.5).toFixed(2)}</div>`;
+                            div.innerHTML += `<div class="legend-item"><div class="legend-color" style="background-color:${getColor(minValue + range * 0.75)}"></div>${(minValue + range * 0.75).toFixed(2)}</div>`;
+                            div.innerHTML += `<div class="legend-item"><div class="legend-color" style="background-color:${getColor(maxValue)}"></div>${maxValue.toFixed(2)}</div>`;
+                            return div;
+                        };
+                        legendGPERP.addTo(map);
+                    })
+                    .catch(error => {
+                        console.error('Error fetching or parsing BFP-PPGC GeoJSON:', error);
+                    });
+
+        // Load and display the Convenience Stores.geojson data (White dots)
+        fetch('https://raw.githubusercontent.com/NJR-admin/NJR-admin.github.io/main/pages/data/Convenience%20Stores.geojson')
+            .then(response => response.json())
+            .then(data => {
+                var whiteDots = L.geoJSON(data, {
+                    pointToLayer: function (feature, latlng) {
+                        return L.circleMarker(latlng, {
+                            radius: 6,
+                            fillColor: '#ffffff', // White color
+                            color: '#000',
+                            weight: 1,
+                            opacity: 1,
+                            fillOpacity: 0.8
+                        });
+                    }
+                }).addTo(map);
+            })
+            .catch(error => {
+                console.error('Error fetching or parsing Convenience Stores GeoJSON:', error);
+            });
+
+        // Load and display the Grocery.geojson data (Black dots)
+        fetch('https://raw.githubusercontent.com/NJR-admin/NJR-admin.github.io/main/pages/data/Grocery.geojson')
+            .then(response => response.json())
+            .then(data => {
+                var blackDots = L.geoJSON(data, {
+                    pointToLayer: function (feature, latlng) {
+                        return L.circleMarker(latlng, {
+                            radius: 6,
+                            fillColor: '#000000', // Black color
+                            color: '#fff',
+                            weight: 1,
+                            opacity: 1,
+                            fillOpacity: 0.8
+                        });
+                    }
+                }).addTo(map);
+            })
+            .catch(error => {
+                console.error('Error fetching or parsing Grocery GeoJSON:', error);
+            });
+
+        // Load and display the Free + Low Cost Directory.geojson data (Programs with different colors)
+        fetch('https://raw.githubusercontent.com/NJR-admin/NJR-admin.github.io/main/pages/data/Free%20%2B%20Low%20Cost%20Directory.geojson')
+            .then(response => response.json())
+            .then(data => {
+                var programTypes = getUniqueProgramTypes(data);
+
+                L.geoJSON(data, {
+                    pointToLayer: function (feature, latlng) {
+                        var programType = feature.properties['Prgram Type'];
+                        var color = getColorForProgramType(programType);
+                        var marker = L.circleMarker(latlng, {
+                            radius: 8,
+                            fillColor: color,
+                            color: '#fff',
+                            weight: 1,
+                            opacity: 1,
+                            fillOpacity: 0.8
+                        });
+                        marker.bindTooltip(feature.properties['Program Name'], { className: 'program-label' });
+
+                        // Enable pop-up with attribute table
+                        var popupContent = createPopupContent(feature.properties);
+                        marker.bindPopup(popupContent);
+                        return marker;
+                    }
+                }).addTo(map);
+
+                map.fitBounds(L.geoJSON(data).getBounds());
+
+                var legendProgramTypes = L.control({ position: 'bottomleft' });
+                legendProgramTypes.onAdd = function (map) {
+                    var div = L.DomUtil.create('div', 'legend');
+                    div.innerHTML += '<h4>Program Types</h4>';
+                    programTypes.forEach(type => {
+                        div.innerHTML += '<div class="legend-item"><div class="legend-color" style="background-color:' + getColorForProgramType(type) + '"></div>' + type + '</div>';
+                    });
+                    return div;
+                };
+                legendProgramTypes.addTo(map);
+            })
+            .catch(error => {
+                console.error('Error fetching or parsing Free + Low Cost Directory GeoJSON:', error);
+            });
+
+        function getUniqueProgramTypes(data) {
+            var types = [];
+            data.features.forEach(feature => {
+                var programType = feature.properties['Prgram Type'];
+                if (!types.includes(programType)) {
+                    types.push(programType);
+                }
+            });
+            return types;
+        }
+
+        function getColorForProgramType(programType) {
+            switch (programType) {
+                case 'Food Banks & Food Hampers':
+                    return '#7fbf7b'; // Pastel green
+                case 'Community Meals':
+                    return '#9ebcda'; // Pastel blue
+                case 'Low cost Meal Program':
+                    return '#fdae61'; // Pastel orange
+                case 'Community Garden':
+                    return '#af8dc3'; // Pastel purple
+                default:
+                    return '#cccccc'; // Default gray
+            }
+        }
+
+        function createPopupContent(properties) {
+            var tableContent = '<table>';
+            for (var key in properties) {
+                if (properties.hasOwnProperty(key)) {
+                    tableContent += `<tr><th>${key}</th><td>${properties[key]}</td></tr>`;
+                }
+            }
+            tableContent += '</table>';
+            return tableContent;
+        }
+    </script>
+</body>
+</html>
